@@ -1,0 +1,53 @@
+second hand caR
+========================================================
+author: ZeroProfanity
+date: 19 april 2017
+autosize: true
+transition: rotate
+incremental: false
+font-import: https://fonts.googleapis.com/css?family=Lato
+font-family: 'Lato', sans-serif;
+
+
+second hand caR
+========================================================
+incremental: true
+## Ever wanted to sell your car, but you didn't know what would be a reasonble price?  
+
+## Ever got ripped off trying to buy a second hand car?
+
+## Now, you can do your research beforehand, using our webapp:
+
+# second hand caR
+
+Specify the details of the car...
+========================================================
+## Tell us the desired
+- Age range  
+- Horsepower range  
+- Kilometer driven range  
+- Fuel type  
+- Transmission type  
+- Car body type   
+
+And second hand caR will give you the data at your fingertips
+========================================================
+```{r echo = FALSE}
+suppressMessages(require(ggplot2)) 
+df.input <- read.csv("~/DataScienceCourse/ProgrammingAssignment9/data_tidy/tidy.csv")
+g <- ggplot(aes(y=price, x=powerPS), data = df.input) +
+     geom_point(alpha = 0.4, aes(color = vehicleType, shape = fuelType), size = 2) +
+     geom_smooth(method = "lm") +
+     coord_cartesian(xlim = c(0, 1000), ylim = c(0,30000))  + 
+     ggtitle("Vehicle prices")
+g
+string.mean <- paste("Mean price is", mean(df.input$price))
+print(string.mean)
+```
+
+
+For more information
+========================================================
+[The webapp](https://gloriousninth.shinyapps.io/second_hand_car/)  
+[The original dataset](https://www.kaggle.com/orgesleka/used-cars-database/)  
+[Github site containing the scripts]()  
